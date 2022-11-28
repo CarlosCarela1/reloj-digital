@@ -1,20 +1,37 @@
-.pokemon_container{
+.main-container {
+    width: 100%;
+    height: 100vh;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
 }
-.card {
-    position: relative;
+.container{
+    width: 429px;
+    height: 157px;
+    background-color: antiquewhite;
+    border-radius: 15px;
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: #ff9898c9 !important;
-    background-clip: border-box;
-    border: 1px solid rgba(0,0,0,.125);
-    border-radius: 0.25rem;
+    background-image: url(/clocks-artwork-splitting-digital-art-wallpaper-preview.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: center;
+}
+p{
+    font-size: 40px;
+    margin: 0 0 0 0;
+    color: white;
     text-align: center;
 }
-.parrafo {
-    color: white;
+.difuminado {
+    width: 100%;
+    height: 100%;
+    background-color: #332e2e82;
+    border-radius: 13px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }

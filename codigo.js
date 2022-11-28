@@ -1,45 +1,35 @@
-const pokemonContainer = document.querySelector(".pokemon_container")
-
-const llamarData = async (id)=>{
-    pokemones = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`);
-    data = await pokemones.json();
-    console.log(data)
-    createPokemon(data)
-}
-
-
-
-llamarPokemones =(num)=>{
-    for(i = 1; i < num; i++){
-        llamarData(i)
-    }
-}
-
-
-
-
-function createPokemon(pokemon){
-    const card = document.createElement("div");
-    card.classList.add("card");
-
-    const imgContainer = document.createElement("div")
-    imgContainer.classList.add("img_container")
-
-    const img = document.createElement("img");
-    img.src = pokemon.sprites.front_default;
-
-    const pokemonName = document.createElement("p");
-    pokemonName.classList.add("parrafo")
-    pokemonName.textContent = pokemon.name;
-
-
-
-    imgContainer.appendChild(img)
+let hora = document.getElementById("hora");
+    let fecha = document.getElementById("fecha")
     
-    card.appendChild(imgContainer)
-    card.appendChild(pokemonName)
-    pokemonContainer.appendChild(card)
-}
+    setInterval(relojDigital=()=>{
+        let horario = new Date;
+        let Hora = horario.getHours();
+        if(Hora > 12){
+            Hora = Hora - 12;
+        }else{
+            Hora
+        }
+        let Minutos = horario.getMinutes();
+        let Segundos = cambiarFormato(horario.getSeconds());
+        let day = cambiarFormato(horario.getDay())
+        hora.innerHTML = `<p>${Hora}: ${Minutos}: ${Segundos}</p>`;
 
 
-llamarPokemones(200)
+        let year = horario.getFullYear()
+        let meses = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sept","Oct", "Nov", "Dic"];
+        let dias = ["Dom", "Lun", "Mar", "Mier", "Jue", "Vie", "Sab"];
+        let mes = meses[horario.getMonth()];
+        let Dias = dias[horario.getDay()]
+        let diaMes = horario.getDate();
+
+        fecha.innerHTML = `<p>${Dias}, ${diaMes} ${mes} ${year}</p>`;
+            
+    }, 1000)
+
+ const cambiarFormato = (hora)=>{
+    if(hora < 10){
+        hora = "0" + hora;
+    }
+    return hora
+
+ }
